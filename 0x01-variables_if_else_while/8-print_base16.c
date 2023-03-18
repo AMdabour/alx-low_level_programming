@@ -17,7 +17,7 @@ int main(void)
 	{
 		if (i < 10)
 		{
-			putchar(i);
+			putchar(i + '0');
 			i++;
 		}
 		else

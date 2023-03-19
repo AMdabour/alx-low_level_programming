@@ -14,7 +14,7 @@ int main(void)
 	while (d1 <= 9)
 	{
 		d2 = 0;
-		while (d2 <= 8)
+		while (d2 <= 9)
 		{
 			d3 = 0;
 			while (d3 <= 9)

@@ -1,16 +1,8 @@
 #include "main.h"
 
 /**
- * main - entry point
- *
- * Return: Always 0 (success)
+ * print_alphabet - uses _putchar function to print lowercase letters
 */
-
-int main(void)
-{
-	print_alphabet();
-	return (0);
-}
 
 void print_alphabet(void)
 {
@@ -18,7 +10,7 @@ void print_alphabet(void)
 
 	ch = 'a';
 	while (ch <= 'z')
-		_putchar(ch + '0');
+		_putchar(ch);
 		ch++;
 	_putchar('\n');
 }

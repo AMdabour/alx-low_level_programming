@@ -13,8 +13,10 @@ int main(void)
 
 	for (car = 0; car < 8; car++)
 	{
-		_putchar(&wor[car]);
+		_putchar(wor[car]);
 	}
-	_putchar('\n');
+
+	_putchar("\n");
+
 	return (0);
 }

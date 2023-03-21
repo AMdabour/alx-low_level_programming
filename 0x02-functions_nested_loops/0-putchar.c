@@ -9,14 +9,13 @@
 int main(void)
 {
 	char wor[] = "_putchar";
-	int car;
+	int ch;
 
-	for (car = 0; car < 8; car++)
-	{
-		_putchar(wor[car]);
-	}
+	for (ch = 0; ch < 8; ch++)
 
-	_putchar("\n");
+		_putchar(wor[ch]);
+
+	_putchar('\n');
 
 	return (0);
 }

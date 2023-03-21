@@ -9,7 +9,6 @@
 int main(void)
 {
 	print_alphabet();
-	_putchar('\n');
 	return (0);
 }
 
@@ -21,4 +20,5 @@ void print_alphabet(void)
 	while (ch <= 'z')
 		_putchar(ch + '0');
 		ch++;
+	_putchar('\n');
 }

@@ -21,7 +21,7 @@ int main(void)
 				putchar(d2 / 10 + '0');
 				putchar(d2 % 10 + '0');
 			}
-			if (d1 + d2 != 197)
+			if (d1 != 98 && d2 != 99)
 			{
 				putchar(',');
 				putchar(' ');

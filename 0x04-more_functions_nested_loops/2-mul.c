@@ -6,9 +6,11 @@
  * @a: the first integer.
  *
  * @b: the second integer.
+ *
+ * Return: the result of multiplication
 */
 
 int mul(int a, int b)
 {
-	_putchar(a * b + '0');
+	return (a * b);
 }

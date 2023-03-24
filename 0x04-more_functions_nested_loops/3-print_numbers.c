@@ -2,8 +2,6 @@
 
 /**
  * print_numbers - prints 0 through 9
- *
- * return: 0
 */
 
 void print_numbers(void)
@@ -15,5 +13,4 @@ void print_numbers(void)
 		_putchar(i + '0');
 	}
 	_putchar('\n');
-	return (0);
 }

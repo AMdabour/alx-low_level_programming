@@ -5,7 +5,7 @@
  *
  * Description: print the largest prime factor
  *
- * Return: largest prime factor
+ * Return: 0 on success
 */
 
 int main(void)
@@ -23,7 +23,7 @@ int main(void)
 		}
 	}
 
-	printf("%lld", i);
+	printf("%lld\n", i);
 
 	return (0);
 }

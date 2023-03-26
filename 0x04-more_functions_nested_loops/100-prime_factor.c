@@ -10,9 +10,9 @@
 
 int main(void)
 {
-	long long int num = 612852475143;
+	long int num = 612852475143;
 
-	long long int i;
+	long int i;
 
 	for (i = 2; i <= num; i++)
 	{
@@ -23,7 +23,7 @@ int main(void)
 		}
 	}
 
-	printf("%lld\n", i);
+	printf("%ld\n", i);
 
 	return (0);
 }

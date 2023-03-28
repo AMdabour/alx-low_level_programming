@@ -4,8 +4,6 @@
  * rev_string - reverse a string
  *
  * @s: string to be reversed
- *
- * Return: the reversed string
 */
 
 void rev_string(char *s)
@@ -29,5 +27,5 @@ void rev_string(char *s)
 		j++;
 	}
 
-	return (o);
+	*s = o;
 }

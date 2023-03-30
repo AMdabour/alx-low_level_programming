@@ -23,7 +23,15 @@ char *_strncpy(char *dest, char *src, int n)
 		*p++ = *src++;
 	}
 
-	for (; i < n; i++)
+	if (i < n)
+	{
+		for (; i < n; i++)
+		{
+			dest[i] = '\0';
+		}
+	}
+
+	else
 	{
 		dest[i] = '\0';
 	}

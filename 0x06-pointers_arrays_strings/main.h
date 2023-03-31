@@ -2,6 +2,7 @@
 #define MAIN_h
 
 #include <stdio.h>
+#include <string.h>
 
 int _putchar(char c);
 
@@ -19,6 +20,6 @@ void reverse_array(int *a, int n);
 
 char *string_toupper(char *c);
 
-char *cap_string(char *);
+char *cap_string(char *c);
 
 #endif

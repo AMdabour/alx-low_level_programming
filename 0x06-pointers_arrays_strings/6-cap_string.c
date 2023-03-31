@@ -10,7 +10,7 @@
 
 char *cap_string(char *c)
 {
-	int i;
+	long unsigned int i;
 
 	if (c[0] >= 'a' && c[0] <= 'z')
 	{

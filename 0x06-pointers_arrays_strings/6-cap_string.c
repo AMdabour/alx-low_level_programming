@@ -10,7 +10,7 @@
 
 char *cap_string(char *c)
 {
-	long unsigned int i;
+	unsigned long int i;
 
 	if (c[0] >= 'a' && c[0] <= 'z')
 	{
@@ -22,11 +22,15 @@ char *cap_string(char *c)
 		if ((c[i] >= 32 && c[i] <= 34) || c[i] == '\n'
 		|| c[i] == 40 || c[i] == 41 || c[i] == 44 ||
 		c[i] == 46 || c[i] == 59 || c[i] == 63 ||
-		c[i] == 123 || c[i] == 125 || c[i] == '	')
+		c[i] == 123 || c[i] == 125 || c[i] == '	' || c[i] == '\t')
 		{
 			if (c[i + 1] >= 'a' && c[i + 1] <= 'z')
 			{
 				c[i + 1] -= 32;
+			}
+			else
+			{
+				continue;
 			}
 		}
 	}

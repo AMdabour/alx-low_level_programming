@@ -12,36 +12,16 @@ char *leet(char *c)
 {
 	int i, j;
 
-	char *p[] = {"4", "3", "0", "7", "1"};
+	char p1[] = "aAeEoOtTlL";
+	char p2[] = "4433007711";
 
 	for (i = 0; c[i] != '\0'; i++)
 	{
-		for (j = 0; j < 5; j++)
+		for (j = 0; j < 10; j++)
 		{
-			if (c[i] == 'A' || c[i] == 'a')
+			if (c[i] == p1[j])
 			{
-				c[i] = p[0][j];
-				break;
-			}
-			else if (c[i] == 'E' || c[i] == 'e')
-			{
-				c[i] = p[1][j];
-				break;
-			}
-			else if (c[i] == 'O' || c[i] == 'o')
-			{
-				c[i] = p[2][j];
-				break;
-			}
-			else if (c[i] == 'T' || c[i] == 't')
-			{
-				c[i] = p[3][j];
-				break;
-			}
-			else if (c[i] == 'L' || c[i] == 'l')
-			{
-				c[i] = p[4][j];
-				break;
+				c[i] = p2[j];
 			}
 		}
 	}

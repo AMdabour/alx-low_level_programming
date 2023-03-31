@@ -10,14 +10,20 @@
 
 void reverse_array(int *a, int n)
 {
-	int i, c = n;
+	int i, c, j;
 
-	for (i = 0; i < n; i++)
+	for (i = 0; i < (n / 2); i++)
 	{
-		c--;
-		print_number(a[c]);
+		c = a[i];
+		a[i] = a[(n - i - 1)];
+		a[(n - i - 1)] = c;
+	}
 
-		if (c != 0)
+	for (j = 0; j < n; j++)
+	{
+		printf("%d", a[j]);
+
+		if (j != n - 1)
 		{
 			_putchar(',');
 			_putchar(' ');

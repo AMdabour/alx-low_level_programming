@@ -10,13 +10,14 @@
 
 void reverse_array(int *a, int n)
 {
-	int i;
+	int i, c = n;
 
-	for (i = n - 1; i >= 0; i--)
+	for (i = 0; i < n; i++)
 	{
-		printf("%d", a[i]);
+		c--;
+		printf("%d", a[c]);
 
-		if (i != 0)
+		if (c != 0)
 		{
 			_putchar(',');
 			_putchar(' ');

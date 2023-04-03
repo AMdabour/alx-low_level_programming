@@ -10,7 +10,7 @@
 
 int _atoi(char *s)
 {
-	int i = 0;
+	unsigned long int i = 0;
 	int num = 0;
 	int f = 0;
 	int d = 0;
@@ -49,5 +49,5 @@ int _atoi(char *s)
 		sign = -1;
 	}
 
-	num == 0 ? 0 : sign * num;
+	return (sign * num);
 }

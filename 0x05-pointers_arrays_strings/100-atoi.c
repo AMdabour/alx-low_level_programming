@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
  * _atoi - convert a string to integer
@@ -11,7 +10,37 @@
 
 int _atoi(char *s)
 {
-	int num = atoi(s);
+	int i = 0;
+	int num = 0;
+	int f = 0;
+	int d = 0;
+	int sign = 0;
 
-	return (num);
+	for (; i < strlen(s) && d == 0; i++)
+	{
+		if (s[i] == '+')
+		{
+			sign++;
+		}
+		else if (s[i] == '-')
+		{
+			sign--;
+		}
+
+		if (s[i] >= '0' && s[i] <= '9')
+		{
+			f = s[i] + '0';
+
+			if (s[i + 1] < '0' || s[i + 1] > '9')
+			{
+				d = 1;
+			}
+		}
+
+		num = num * 10 + f;
+	}
+
+	sign >= 0 ? sign = 1 : sign = -1;
+
+	num == 0 ? return (0) : return (sign * num);
 }

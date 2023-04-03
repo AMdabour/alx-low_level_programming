@@ -40,7 +40,14 @@ int _atoi(char *s)
 		num = num * 10 + f;
 	}
 
-	sign >= 0 ? sign = 1 : sign = -1;
+	if (sign >= 0)
+	{
+		sign = 1;
+	}
+	else
+	{
+		sign = -1;
+	}
 
-	num == 0 ? return (0) : return (sign * num);
+	num == 0 ? 0 : sign * num;
 }

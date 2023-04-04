@@ -12,38 +12,14 @@
 
 char *_strchr(char *s, char c)
 {
-	unsigned long int j = 0;
-
-	int i, d = 0, n, o = 0;
-
-	char p[BUFSIZ];
-
-	while (s[j] != '\0')
+	while (*s != '\0')
 	{
-		j++;
-	}
-
-	for (i = 0; i < j && d == 0; i++)
-	{
-		if (s[i] == c)
+		if (*s == c)
 		{
-			for (n = i; s[n] != '\0'; n++)
-			{
-				p[o] = s[n];
-				o++;
-			}
-
-			p[o] = '\0';
-			d = 1;
+			return (s);
 		}
+		s++;
 	}
 
-	if (d == 1)
-	{
-		return (p);
-	}
-	else
-	{
-		return (NULL);
-	}
+	return (NULL);
 }

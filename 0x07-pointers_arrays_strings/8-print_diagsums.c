@@ -8,7 +8,7 @@
  * @size: the size to be checked
 */
 
-void print_diagsums(int i*a, int size)
+void print_diagsums(int *a, int size)
 {
 	int i;
 

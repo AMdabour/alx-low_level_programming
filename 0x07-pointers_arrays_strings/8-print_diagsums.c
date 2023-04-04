@@ -8,11 +8,13 @@
  * @size: the size to be checked
 */
 
-void print_diagsums(int *a, int size)
+void print_diagsums(int **a, int size)
 {
-	unsigned int i;
+	int i;
 
-	long int sum = 0;
+	long int sum1 = 0;
+
+	long int sum2 = 0;
 
 	for (i = 0; i < size; i++)
 	{
@@ -24,8 +26,7 @@ void print_diagsums(int *a, int size)
 
 	for (i = 0; i < size; i++)
 	{
-		sum = 0;
-		sum += a[i][n - 1 - i];
+		sum += a[i][size - 1 - i];
 	}
 
 	printf("%ld\n", sum);

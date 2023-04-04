@@ -16,7 +16,7 @@ char *_strchr(char *s, char c)
 
 	int i, d = 0, n, o = 0;
 
-	char p[];
+	char p[BUFSIZ];
 
 	while (s[j] != '\0')
 	{
@@ -27,7 +27,7 @@ char *_strchr(char *s, char c)
 	{
 		if (s[i] == c)
 		{
-			for (n = i; n < j; n++)
+			for (n = i; s[n] != '\0'; n++)
 			{
 				p[o] = s[n];
 				o++;
@@ -36,13 +36,9 @@ char *_strchr(char *s, char c)
 			p[o] = '\0';
 			d = 1;
 		}
-		else
-		{
-			continue;
-		}
 	}
 
-	if (p != NULL)
+	if (d == 1)
 	{
 		return (p);
 	}

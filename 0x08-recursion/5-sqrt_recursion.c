@@ -8,7 +8,7 @@
  * Return: the square root of n
 */
 
-int _sqrt_recursion(int n)
+int _sqrt_recursion(long int n)
 {
 	if (n == 0 || n == 1)
 	{
@@ -23,7 +23,16 @@ int _sqrt_recursion(int n)
 	return (_sqrt_recursion_h(n, 1, n));
 }
 
-int _sqrt_recursion_h(int n, int s, int e)
+/**
+ * _sqrt_recursion_h - helper function
+ *
+ * @n: the number
+ * @s: start
+ * @e: end
+ * Return: result
+*/
+
+int _sqrt_recursion_h(long int n, int s, int e)
 {
 	int m = (s + e) / 2;
 

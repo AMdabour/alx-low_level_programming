@@ -10,11 +10,6 @@
 
 int _sqrt_recursion(long int n)
 {
-	if (n == 0 || n == 1)
-	{
-		return (n);
-	}
-
 	if (n < 0)
 	{
 		return (-1);
@@ -25,7 +20,6 @@ int _sqrt_recursion(long int n)
 
 /**
  * _sqrt_recursion_h - helper function
- *
  * @n: the number
  * @i: result to be checked
  * Return: result
@@ -33,7 +27,7 @@ int _sqrt_recursion(long int n)
 
 int _sqrt_recursion_h(long int n, int i)
 {
-	if (i *i > n)
+	if (i * i > n)
 	{
 		return (-1);
 	}

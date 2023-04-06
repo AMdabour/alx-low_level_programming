@@ -20,36 +20,28 @@ int _sqrt_recursion(long int n)
 		return (-1);
 	}
 
-	return (_sqrt_recursion_h(n, 1, n));
+	return (_sqrt_recursion_h(n, 0));
 }
 
 /**
  * _sqrt_recursion_h - helper function
  *
  * @n: the number
- * @s: start
- * @e: end
+ * @i: result to be checked
  * Return: result
 */
 
-int _sqrt_recursion_h(long int n, int s, int e)
+int _sqrt_recursion_h(long int n, int i)
 {
-	int m = (s + e) / 2;
-
-	if (m * m == n)
-	{
-		return (m);
-	}
-	if (s >= e)
+	if (i *i > n)
 	{
 		return (-1);
 	}
-	if (m * m < n)
+
+	if (i * i == n)
 	{
-		return (_sqrt_recursion_h(n, m + 1, e));
+		return (i);
 	}
-	else
-	{
-		return (_sqrt_recursion_h(n, s, m - 1));
-	}
+
+	return (_sqrt_recursion_h(n, i + 1));
 }

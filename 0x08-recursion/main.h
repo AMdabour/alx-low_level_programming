@@ -17,5 +17,9 @@ int factorial(int n);
 
 int _pow_recursion(int x, int y);
 
+int _sqrt_recursion(int n);
+
+int _sqrt_recursion_h(int n, int s, int e);
+
 
 #endif

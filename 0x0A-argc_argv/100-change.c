@@ -1,5 +1,5 @@
 #include "main.h"
-void main_helper(int cents, int coins);
+int main_helper(int cents, int coins);
 
 /**
  * main - entry point
@@ -24,11 +24,11 @@ int main(int argc, char *argv[])
 	return (0);
 }
 
-void main_helper(int cents, int coins)
+int main_helper(int cents, int coins)
 {
 	while (cents > 0)
 	{
-		if (cents >= 2)
+		if (cents >= 25)
 		{
 			coins += cents / 25;
 			cents %= 25;
@@ -56,4 +56,6 @@ void main_helper(int cents, int coins)
 	}
 
 	printf("%d\n", coins);
+
+	return (0);
 }

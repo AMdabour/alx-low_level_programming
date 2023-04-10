@@ -1,4 +1,6 @@
 #include "main.h"
+void main_helper(int cents, int coins);
+
 /**
  * main - entry point
  * @argc: arg count
@@ -7,7 +9,7 @@
 */
 int main(int argc, char *argv[])
 {
-	int cents = atoi(argv[1]), coins = 0;
+	int cents1, coins1 = 0;
 
 	if (argc != 2)
 	{
@@ -15,9 +17,18 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
+	cents1 = atoi(argv[1]);
+
+	main_helper(cents1, coins1);
+
+	return (0);
+}
+
+void main_helper(int cents, int coins)
+{
 	while (cents > 0)
 	{
-		if (cents >= 25)
+		if (cents >= 2)
 		{
 			coins += cents / 25;
 			cents %= 25;
@@ -45,6 +56,4 @@ int main(int argc, char *argv[])
 	}
 
 	printf("%d\n", coins);
-
-	return (0);
 }

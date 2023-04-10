@@ -1,0 +1,42 @@
+#include "main.h"
+#include <stdlib.h>
+#include <ctype.h>
+
+/**
+ * main - entry point
+ *
+ * @argc: argument count
+ *
+ * @argv: array of strings
+ *
+ * Return: 0 (success)
+*/
+
+int main(int argc, char *argv[])
+{
+	int i, result = 0;
+
+	if (argc > 1)
+	{
+		for (i = 1; i < argc; i++)
+		{
+			if (isdigit(atoi(argv[i]))
+			{
+				result += atoi(argv[i]);
+			}
+			else
+			{
+				printf("Error\n");
+				return (1);
+			}
+		}
+
+		printf("%d\n", result);
+	}
+	else
+	{
+		printf("0\n");
+	}
+
+	return (0);
+}

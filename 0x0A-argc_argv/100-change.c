@@ -9,7 +9,7 @@ void main_helper(int cents, int coins);
 */
 int main(int argc, char *argv[])
 {
-	int cents1, coins1 = 0;
+	int cents, coins = 0;
 
 	if (argc != 2)
 	{
@@ -17,9 +17,9 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	cents1 = atoi(argv[1]);
+	cents = atoi(argv[1]);
 
-	main_helper(cents1, coins1);
+	main_helper(cents, coins);
 
 	return (0);
 }

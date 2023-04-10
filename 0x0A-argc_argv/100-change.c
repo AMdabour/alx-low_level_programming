@@ -23,7 +23,11 @@ int main(int argc, char *argv[])
 
 	return (0);
 }
-
+/**
+ * main_helper - helper function
+ * @cents: cents
+ * @coins: coins
+*/
 void main_helper(int cents, int coins)
 {
 	while (cents > 0)

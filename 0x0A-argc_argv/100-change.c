@@ -1,5 +1,5 @@
 #include "main.h"
-int main_helper(int cents, int coins);
+void main_helper(int cents, int coins);
 
 /**
  * main - entry point
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 	return (0);
 }
 
-int main_helper(int cents, int coins)
+void main_helper(int cents, int coins)
 {
 	while (cents > 0)
 	{
@@ -56,6 +56,4 @@ int main_helper(int cents, int coins)
 	}
 
 	printf("%d\n", coins);
-
-	return (0);
 }

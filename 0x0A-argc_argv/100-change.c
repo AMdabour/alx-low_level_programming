@@ -9,9 +9,11 @@ int main(int argc, char *argv[])
 {
 	int cents = atoi(argv[1]), coins = 0;
 
-	argc != 2 ? printf("Error\n"), 1 : 0;
-
-	cents < 0 ? (printf("0\n"), 0) : 1;
+	if (argc != 2)
+	{
+		printf("Error\n");
+		return (1);
+	}
 
 	while (cents > 0)
 	{
@@ -41,6 +43,7 @@ int main(int argc, char *argv[])
 			cents = 0;
 		}
 	}
+
 	printf("%d\n", coins);
 
 	return (0);

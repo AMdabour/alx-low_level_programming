@@ -9,28 +9,43 @@
 
 char *str_concat(char *s1, char *s2)
 {
-	char *ptr = s1 + strlen(s1);
+	unsigned int i, j;
 
-	unsigned int i;
+	if (s1 == NULL && s2 == NULL)
+	{
+		return (NULL);
+	}
+	else if (s1 == NULL)
+	{
+		return (s2);
+	}
 
-	if (s2 == NULL)
+	else if (s2 == NULL)
 	{
 		return (s1);
 	}
 
-	ptr = (char *) malloc(strlen(s2) * sizeof(char) + 1);
+	ptr = (char *) malloc(strlen(s1) + strlen(s2) + 1);
 
 	if (ptr == NULL)
 	{
 		return (NULL);
 	}
 
-	for (i = 1; i < strlen(s2); i++)
+	for (i = 0; i < strlen(s1); i++)
 	{
-		*(ptr + i) = *(s2 + i);
+		*(ptr + i) = *(s1 + i);
 	}
 
-	*(ptr + i) = '\0';
+	i = 0;
 
-	return (s1);
+	for (j = strlen(s1); j < (strlen(s1) + strlen(s2)); j++)
+	{
+		*(ptr + j) = *(s2 + i);
+		i++;
+	}
+
+	*(ptr + j) = '\0';
+
+	return (ptr);
 }

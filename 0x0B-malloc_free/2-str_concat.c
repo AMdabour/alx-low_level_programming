@@ -9,6 +9,8 @@
 
 char *str_concat(char *s1, char *s2)
 {
+	char *ptr;
+
 	unsigned int i, j;
 
 	if (s1 == NULL && s2 == NULL)

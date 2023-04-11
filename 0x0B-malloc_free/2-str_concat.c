@@ -17,7 +17,8 @@ char *str_concat(char *s1, char *s2)
 	{
 		s1 = "";
 	}
-	else if (s2 == NULL)
+
+	if (s2 == NULL)
 	{
 		s2 = "";
 	}
@@ -28,12 +29,14 @@ char *str_concat(char *s1, char *s2)
 	{
 		return (NULL);
 	}
+
 	for (i = 0; i < strlen(s1); i++)
 	{
 		*(ptr + i) = *(s1 + i);
 	}
 
 	i = 0;
+
 	for (j = strlen(s1); j < (strlen(s1) + strlen(s2)); j++)
 	{
 		*(ptr + j) = *(s2 + i);

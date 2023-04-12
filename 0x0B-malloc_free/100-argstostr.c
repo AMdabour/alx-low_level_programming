@@ -8,7 +8,9 @@
 */
 char *argstostr(int ac, char **av)
 {
-	unsigned int i, j, len;
+	int i, j;
+
+	unsigned int len;
 
 	char *ptr, *tmp;
 
@@ -30,7 +32,7 @@ char *argstostr(int ac, char **av)
 			*(tmp++) = av[i][j];
 		*(tmp++) = '\n';
 	}
-	*(tmp) = '\0'
+	*(tmp) = '\0';
 
 	return (ptr);
 }

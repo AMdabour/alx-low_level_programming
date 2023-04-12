@@ -8,15 +8,15 @@
 
 char *argstostr(int ac, char **av)
 {
-	int i, j;
+	unsigned int i, j;
 
-	char **ptr;
+	char *ptr;
 
 	if (ac == 0 || av == NULL)
 	{
 		return (NULL);
 	}
-	ptr = (char **) malloc(ac * sizeof(char *));
+	ptr = (char *) malloc(ac * sizeof(char));
 
 	if (ptr == NULL)
 	{

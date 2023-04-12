@@ -1,50 +1,36 @@
 #include "main.h"
-/**
- * argstostr - turn all argumebts to string
- * @ac: argumebt count
- * @av: argument vector
- * Return: string on success
-*/
 
+/**
+ * argstostr - concatenates all arguments of your program
+ * @ac: the number of arguments
+ * @av: array of arguments
+ * Return: pointer to concatenated string
+*/
 char *argstostr(int ac, char **av)
 {
-	unsigned int i, j;
+	unsigned int i, j, len;
 
-	char *ptr;
+	char *ptr, *tmp;
 
 	if (ac == 0 || av == NULL)
-	{
 		return (NULL);
-	}
-	ptr = (char *) malloc(ac * sizeof(char *));
 
+	len = 0;
+	for (i = 0; i < ac; i++)
+		len += strlen(av[i]) + 1;
+
+	ptr = (char *)malloc(len * sizeof(char));
 	if (ptr == NULL)
-	{
 		return (NULL);
-	}
-	for (i = 0; i < ac; i++)
-	{
-		ptr[i] = (char *) malloc((strlen(av[i]) + 2) * sizeof(char));
-		if (ptr[i] == NULL)
-		{
-			for (j = 0; j < i; j++)
-			{
-				free(ptr[j]);
-			}
-			free(ptr);
 
-			return (NULL);
-		}
-	}
+	tmp = ptr;
 	for (i = 0; i < ac; i++)
 	{
-		for (j = 0; j < strlen(av[i]); j++)
-		{
-			ptr[i][j] = av[i][j];
-		}
-		ptr[i][j] = '\n';
-		ptr[i][j + 1] = '\0';
+		for (j = 0; av[i][j] != '\0'; j++)
+			*(tmp++) = av[i][j];
+		*(tmp++) = '\n';
 	}
+	*(tmp) = '\0'
 
 	return (ptr);
 }

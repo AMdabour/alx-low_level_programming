@@ -24,7 +24,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		return (NULL);
 	strncpy(ptr, s1, len1);
 	strncat(ptr, s2, (n < len2 ? n : len2));
-	ptr[len - 1] = '\0';
+	ptr[len] = '\0';
 
 	return (ptr);
 }

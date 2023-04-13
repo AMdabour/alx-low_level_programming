@@ -30,6 +30,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 				*tmp++ = *s2++;
 		}
 		*tmp = '\0';
+
 		return (ptr);
 	}
 	else
@@ -47,5 +48,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		}
 		*tmp = '\0';
 	}
+
 	return (ptr);
 }

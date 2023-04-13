@@ -54,11 +54,11 @@ char **strtow(char *str)
  * Return: the length
 */
 
-unsigned int word_length(char **str)
+unsigned int word_length(char *str)
 {
 	unsigned int i, len = 0;
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 0; str[i] != "\0"; i++)
 	{
 		if (str[i] != ' ')
 		{

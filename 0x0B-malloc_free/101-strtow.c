@@ -37,9 +37,9 @@ char **strtow(char *str)
 				return (NULL);
 			for (j = i; str[j] != ' ' && str[j] != '\0'; j++)
 			{
-				*(temp)[j - i] = str[j];
+				(*temp)[j - i] = str[j];
 			}
-			*(temp)[j - i] = '\0';
+			(*temp)[j - i] = '\0';
 			temp++;
 			i = j;
 		}

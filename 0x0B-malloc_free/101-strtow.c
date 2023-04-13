@@ -1,5 +1,5 @@
 #include "main.h"
-unsigned int word_length(char **str);
+unsigned int word_length(char *str);
 /**
  * strtow - turns string into words
  * @str: the string to be turned

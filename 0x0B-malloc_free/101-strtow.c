@@ -30,11 +30,11 @@ char **strtow(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		*temp = (char *) malloc((len + 1) * sizeof(char));
-		if (*temp == NULL)
-			return (NULL);
 		if (str[i] != ' ')
 		{
+			*temp = (char *) malloc((len + 1) * sizeof(char));
+			if (*temp == NULL)
+				return (NULL);
 			for (j = i; str[j] != ' ' && str[j] != '\0'; j++)
 			{
 				*(temp)[j - i] = str[j];

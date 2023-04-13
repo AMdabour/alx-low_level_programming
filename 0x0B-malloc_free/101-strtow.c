@@ -1,5 +1,5 @@
 #include "main.h"
-unsigned int word_length(char *str);
+unsigned int word_length(unsigned int len, char *str);
 /**
  * strtow - turns string into words
  * @str: the string to be turned
@@ -7,11 +7,11 @@ unsigned int word_length(char *str);
 */
 char **strtow(char *str)
 {
-	unsigned int i, j;
+	unsigned int i, j, len = 0;
 
 	char **ptr, **temp;
 
-	word_length(str);
+	word_length(len, str);
 
 	if (str == NULL || *str == '\0')
 	{
@@ -54,11 +54,11 @@ char **strtow(char *str)
  * Return: the length
 */
 
-unsigned int word_length(char *str)
+unsigned int word_length(unsigned int len, char *str)
 {
-	unsigned int i, len = 0;
+	unsigned int i;
 
-	for (i = 0; str[i] != "\0"; i++)
+	for (i = 0; *str[i] != "\0"; i++)
 	{
 		if (str[i] != ' ')
 		{

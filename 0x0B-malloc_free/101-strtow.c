@@ -19,7 +19,7 @@ char **strtow(char *str)
 		return (NULL);
 	}
 
-	ptr = (char **) malloc(len * sizeof(char *));
+	ptr = (char **) malloc((len + 1) * sizeof(char *));
 
 	if (ptr == NULL)
 	{
@@ -28,17 +28,23 @@ char **strtow(char *str)
 
 	temp = ptr;
 
-	for (i = 0; i < len; i++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
+		*tmp = (char *) malloc((len + 1) * sizeof(char));
+		if (*tmp == NULL)
+			return (NULL);
 		if (str[i] != ' ')
 		{
-			for (j = i; str[j] != ' '; j++)
+			for (j = i; str[j] != ' ' && str[j] != '\0'; j++)
 			{
-				**temp++ = str[j];
+				*(temp)[j - i] = str[j];
 			}
-			**temp = '\0';
+			*(temp)[j - i] = '\0';
+			temp++;
+			i = j;
 		}
 	}
+	*temp = NULL;
 
 	return (ptr);
 }

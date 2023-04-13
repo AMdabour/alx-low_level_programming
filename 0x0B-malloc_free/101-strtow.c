@@ -1,18 +1,17 @@
 #include "main.h"
-
+unsigned int word_length(char **str);
 /**
  * strtow - turns string into words
  * @str: the string to be turned
  * Return: array of words
 */
-
 char **strtow(char *str)
 {
-	unsigned int i, j, len;
+	unsigned int i, j;
 
 	char **ptr, **temp;
 
-	len = strlen(str);
+	word_length(str);
 
 	if (str == NULL || *str == '\0')
 	{
@@ -47,4 +46,25 @@ char **strtow(char *str)
 	*temp = NULL;
 
 	return (ptr);
+}
+
+/**
+ * word_length - returns the length of string words
+ * @str: the string
+ * Return: the length
+*/
+
+unsigned int word_length(char **str)
+{
+	unsigned int i, len = 0;
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] != ' ')
+		{
+			len++;
+		}
+	}
+
+	return (len);
 }

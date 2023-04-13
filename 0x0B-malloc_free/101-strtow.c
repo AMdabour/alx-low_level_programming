@@ -8,13 +8,13 @@
 
 char **strtow(char *str)
 {
-	int i, j;
+	unsigned int i, j, len;
 
-	unsigned len = strlen(str);
+	len = strlen(str);
 
 	char **ptr, **temp;
 
-	if (str == NULL || str == "")
+	if (str == NULL || *str == '\0')
 	{
 		return (NULL);
 	}

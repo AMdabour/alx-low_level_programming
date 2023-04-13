@@ -10,9 +10,9 @@ char **strtow(char *str)
 {
 	unsigned int i, j, len;
 
-	len = strlen(str);
-
 	char **ptr, **temp;
+
+	len = strlen(str);
 
 	if (str == NULL || *str == '\0')
 	{

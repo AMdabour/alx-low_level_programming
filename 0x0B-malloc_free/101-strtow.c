@@ -30,8 +30,8 @@ char **strtow(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		*tmp = (char *) malloc((len + 1) * sizeof(char));
-		if (*tmp == NULL)
+		*temp = (char *) malloc((len + 1) * sizeof(char));
+		if (*temp == NULL)
 			return (NULL);
 		if (str[i] != ' ')
 		{

@@ -1,83 +1,114 @@
 #include "main.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
+#include <string.h>
 
 /**
- * is_number - checks if a string is composed of digits only
- * @str: the string to check
- * Return: 1 if the string is composed of digits only, 0 otherwise
-*/
-int is_number(char *str)
+ * _isdigit - checks if character is digit
+ * @c: the character to check
+ *
+ * Return: 1 if digit, 0 otherwise
+ */
+int _isdigit(int c)
 {
-	int i;
+	return (c >= '0' && c <= '9');
+}
 
-	for (i = 0; str[i] != '\0'; i++)
+/**
+ * _strlen - returns the length of a string
+ * @s: the string whose length to check
+ *
+ * Return: integer length of string
+ */
+int _strlen(char *s)
+{
+	int l = 0;
+
+	while (*s++)
+		l++;
+	return (l);
+}
+
+/**
+ * big_multiply - multiply two big number strings
+ * @s1: the first big number string
+ * @s2: the second big number string
+ *
+ * Return: the product big number string
+ */
+char *big_multiply(char *s1, char *s2)
+{
+	char *r;
+	int l1, l2, a, b, c, x;
+
+	l1 = _strlen(s1);
+	l2 = _strlen(s2);
+	r = malloc(a = x = l1 + l2);
+	if (!r)
+		printf("Error\n"), exit(98);
+	while (a--)
+		r[a] = 0;
+
+	for (l1--; l1 >= 0; l1--)
 	{
-		if (!isdigit(str[i]))
+		if (!_isdigit(s1[l1]))
 		{
-			return (0);
+			free(r);
+			printf("Error\n"), exit(98);
 		}
+		a = s1[l1] - '0';
+		c = 0;
+
+		for (l2 = _strlen(s2) - 1; l2 >= 0; l2--)
+		{
+			if (!_isdigit(s2[l2]))
+			{
+				free(r);
+				printf("Error\n"), exit(98);
+			}
+			b = s2[l2] - '0';
+
+			c += r[l1 + l2 + 1] + (a * b);
+			r[l1 + l2 + 1] = c % 10;
+
+			c /= 10;
+		}
+		if (c)
+			r[l1 + l2 + 1] += c;
 	}
-
-	return (1);
+	return (r);
 }
 
-/**
- * multiply - multiplies two numbers
- * @num1: the first number
- * @num2: the second number
- * Return: the product of num1 and num2
-*/
-int multiply(char *num1, char *num2)
-{
-	int n1 = atoi(num1);
-
-	int n2 = atoi(num2);
-
-	return (n1 * n2);
-}
 
 /**
- * main - multiplies two positive numbers
- * @argc: the number of command-line arguments
- * @argv: an array of command-line arguments
- * Return: 0 on success, 98 on failure
-*/
-int main(int argc, char *argv[])
+ * main - multiply two big number strings
+ * @argc: the number of arguments
+ * @argv: the argument vector
+ *
+ * Return: Always 0 on success.
+ */
+int main(int argc, char **argv)
 {
-	int result;
-
-	int *arr, i;
+	char *r;
+	int a, c, x;
 
 	if (argc != 3)
+		printf("Error\n"), exit(98);
+
+	x = _strlen(argv[1]) + _strlen(argv[2]);
+	r = big_multiply(argv[1], argv[2]);
+	c = 0;
+	a = 0;
+	while (c < x)
 	{
-		printf("Error\n");
-		exit(98);
+		if (r[c])
+			a = 1;
+		if (a)
+			_putchar(r[c] + '0');
+		c++;
 	}
-
-	if (!is_number(argv[1]) || !is_number(argv[2]))
-	{
-		printf("Error\n");
-		exit(98);
-	}
-
-	result =  multiply(argv[1], argv[2]);
-	printf("%d\n", result);
-
-	arr = malloc(result * sizeof(int));
-	if (arr == NULL)
-	{
-		printf("Memory allocation failed\n");
-		return (1);
-	}
-
-	for (i = 0; i < result; i++)
-	{
-		arr[i] = i;
-	}
-
-	free(arr);
-
+	if (!a)
+		_putchar('0');
+	_putchar('\n');
+	free(r);
 	return (0);
 }

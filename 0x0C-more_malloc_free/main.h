@@ -13,8 +13,9 @@ void *_calloc(unsigned int nmemb, unsigned int size);
 int *array_range(int min, int max);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-int is_number(char *str);
-int multiply(char *num1, char *num2);
-int main(int argc, char *argv[]);
+int main(int argc, char **argv);
+char *big_multiply(char *s1, char *s2);
+int _strlen(char *s);
+int _isdigit(int c);
 
 #endif

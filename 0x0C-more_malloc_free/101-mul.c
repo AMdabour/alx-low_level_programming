@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	result = multiply(argv[1], argv[2]);
+	result =  multiply(argv[1], argv[2]);
 	printf("%d\n", result);
 
 	return (0);

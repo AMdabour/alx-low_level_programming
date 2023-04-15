@@ -48,6 +48,8 @@ int main(int argc, char *argv[])
 {
 	int result;
 
+	int *arr, i;
+
 	if (argc != 3)
 	{
 		printf("Error\n");
@@ -62,6 +64,20 @@ int main(int argc, char *argv[])
 
 	result =  multiply(argv[1], argv[2]);
 	printf("%d\n", result);
+
+	arr = malloc(result * sizeof(int));
+	if (arr == NULL)
+	{
+		printf("Memory allocation failed\n");
+		return (1);
+	}
+
+	for (i = 0; i < result; i++)
+	{
+		arr[i] = i;
+	}
+
+	free(arr);
 
 	return (0);
 }

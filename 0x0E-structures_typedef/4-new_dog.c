@@ -22,9 +22,15 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (p == NULL)
 		return (NULL);
 
-	strcpy(p->name, name);
+	p->name = strdup(name);
+	if (p->name == NULL)
+		return (NULL);
+
 	p->age = age;
-	strcpy(p->owner, owner);
+
+	p->owner = strdup(owner);
+	if (p->owner == NULL)
+		return (NULL);
 
 	return (p);
 }

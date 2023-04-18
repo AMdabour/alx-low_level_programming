@@ -6,6 +6,6 @@
  * @x: the value to be absolutely computed
  */
 
-#define ABS(x) (x > 1 ? (1 * x) : (-1 * x))
+#define ABS(x) ((x) > 1 ? (x) : (-(x)))
 
 #endif

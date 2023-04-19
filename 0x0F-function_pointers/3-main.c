@@ -10,9 +10,9 @@
  * Return: 0 (on success)
  */
 
-int main(int argc, char *argv[])
+int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	int a, b, result;
+	int a, b;
 
 	char *opr;
 
@@ -41,9 +41,7 @@ int main(int argc, char *argv[])
 		exit(100);
 	}
 
-	result = (*get_op_func(opr))(a, b);
-
-	printf("%d\n", result);
+	printf("%d\n", (*get_op_func(opr))(a, b));
 
 	return (0);
 }

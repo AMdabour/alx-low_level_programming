@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * addint_node_end - adds a new node to the end of a list
+ * add_nodeint_end - adds a new node to the end of a list
  * @head: the case list
  * @n: an int value to the list
  * Return: the address of the new node

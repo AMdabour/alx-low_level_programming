@@ -25,8 +25,6 @@ unsigned int binary_to_uint(const char *b)
 	{
 		if (b[d] != '1' && b[d] != '0')
 			return (0);
-		else
-			continue;
 	}
 
 	for (d = 0; d < l; d++)

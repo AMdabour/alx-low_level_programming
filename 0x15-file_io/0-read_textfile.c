@@ -18,22 +18,30 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	fp = fopen(filename, "r");
 	if (fp == NULL)
+	{
 		fclose(fp);
 		return (0);
+	}
 	buff = malloc(sizeof(char) * letters);
 	if (buff == NULL)
+	{
 		fclose(fp);
 		return (0);
+	}
 	bytes_read = fread(buff, sizeof(char), letters, fp);
 	if (bytes_read == 0 || ferror(fp))
+	{
 		free(buff);
 		fclose(fp);
 		return (0);
+	}
 	bytes_written = write(STDOUT_FILENO, buff, bytes_read);
-	if (bytes_wrutten != bytes_read)
+	if (bytes_written != bytes_read)
+	{
 		free(buff);
 		fclose(fp);
 		return (0);
+	}
 
 	free(buff);
 	fclose(fp);

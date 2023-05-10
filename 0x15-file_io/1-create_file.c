@@ -22,10 +22,16 @@ int create_file(const char *filename, char *text_content)
 		}
 	}
 
-	fd = open(filename, O_CREAT |
-		O_RDWR | O_TRUNC | 0600);
-
-	write_return = write(fd, text_content, len);
+	if (access(filename, F_OK) != -1)
+	{
+		fd = open(filename, O_CREAT | O_RDWR | O_TRUNC | 0600);
+		write_return = write(fd, text_content, len);
+	}
+	else
+	{
+		fd = open(filename, O_RDWR | O_TRUNC);
+		write_return = write(fd, text_content, len);
+	}
 
 	if (fd == -1 || write_return == -1)
 		return (-1);

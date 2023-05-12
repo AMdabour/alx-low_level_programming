@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
 {
 	char buff[1024];
 	int fd1, fd2, ret1, ret2;
+	off_t length;
 
 	if (argc != 3)
 	{
@@ -20,7 +21,9 @@ int main(int argc, char *argv[])
 	}
 
 	fd1 = open(argv[1], O_RDONLY);
-	ret1 = read(fd1, buff, 1024);
+	lseek(fd1, 0, SEEK_END);
+	length = lseek(fd1, 0, SEEK_CUR);
+	ret1 = read(fd1, buff, length);
 
 	if (fd1 == -1 || ret1 == -1)
 	{

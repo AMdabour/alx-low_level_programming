@@ -1,6 +1,6 @@
 #include "main.h"
 
-void close_helper(int fd1, int fd2);
+void close_helper(int fd1);
 char *buffer_helper(char *fileto);
 
 /**
@@ -23,7 +23,8 @@ int main(int argc, char *argv[])
 	buff = buffer_helper(argv[2]);
 	fd1 = open(argv[1], O_RDONLY);
 	ret1 = read(fd1, buff, 1024);
-	fd2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC , 0664);
+	fd2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+
 	do {
 		if (fd1 == -1 || ret1 == -1)
 		{
@@ -45,7 +46,8 @@ int main(int argc, char *argv[])
 	} while (ret1 > 0);
 
 	free(buff);
-	close_helper(fd1, fd2);
+	close_helper(fd1);
+	close_helper(fd2);
 
 	return (0);
 }
@@ -53,19 +55,12 @@ int main(int argc, char *argv[])
 /**
  * close_helper - close a file
  * @fd1: file descriptor for file 1
- * @fd2: file descriptor for file 2
  */
-void close_helper(int fd1, int fd2)
+void close_helper(int fd1)
 {
-	if (!close(fd1))
+	if (close(fd1) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
-		exit(100);
-	}
-
-	if (!close(fd2))
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
 		exit(100);
 	}
 }

@@ -12,7 +12,6 @@ int main(int argc, char *argv[])
 {
 	char buff[1024];
 	int fd1, fd2, ret1, ret2;
-	off_t length;
 
 	if (argc != 3)
 	{
@@ -21,9 +20,7 @@ int main(int argc, char *argv[])
 	}
 
 	fd1 = open(argv[1], O_RDONLY);
-	lseek(fd1, 0, SEEK_END);
-	length = lseek(fd1, 0, SEEK_CUR);
-	ret1 = read(fd1, buff, length);
+	ret1 = read(fd1, buff, 1024);
 
 	if (fd1 == -1 || ret1 == -1)
 	{
@@ -31,7 +28,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	fd2 = open(argv[2], O_CREAT | O_TRUNC | 0664);
+	fd2 = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY | 0664);
 	ret2 = write(fd2, buff, sizeof(buff));
 
 	if (fd2 == -1 || ret2 == -1)
@@ -42,7 +39,7 @@ int main(int argc, char *argv[])
 
 	close_helper(fd1, fd2);
 
-	return (1);
+	return (0);
 }
 
 /**

@@ -1,6 +1,7 @@
 #include "main.h"
 
 void close_helper(int fd1, int fd2);
+char *buffer_helper(char *fileto);
 
 /**
  * main - entry point
@@ -10,7 +11,7 @@ void close_helper(int fd1, int fd2);
  */
 int main(int argc, char *argv[])
 {
-	char buff[1024];
+	char *buff;
 	int fd1, fd2, ret1, ret2;
 
 	if (argc != 3)
@@ -19,24 +20,31 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
+	buff = buffer_helper(argv[2]);
 	fd1 = open(argv[1], O_RDONLY);
 	ret1 = read(fd1, buff, 1024);
-
-	if (fd1 == -1 || ret1 == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
-
 	fd2 = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY | 0664);
-	ret2 = write(fd2, buff, sizeof(buff));
+	do {
+		if (fd1 == -1 || ret1 == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			free(buff);
+			exit(98);
+		}
 
-	if (fd2 == -1 || ret2 == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
-	}
+		ret2 = write(fd2, buff, ret1);
+		if (fd2 == -1 || ret2 == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			free(buff);
+			exit(99);
+		}
 
+		ret1 = read(fd1, buff, 1024);
+		fd2 = open(argv[2], O_WRONLY | O_APPEND);
+	} while (ret1 > 0);
+
+	free(buff);
 	close_helper(fd1, fd2);
 
 	return (0);
@@ -60,4 +68,23 @@ void close_helper(int fd1, int fd2)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
 		exit(100);
 	}
+}
+
+/**
+ * buffer_helper - create a buffer
+ * @fileto: fileto
+ * Return: buffer
+ */
+char *buffer_helper(char *fileto)
+{
+	char *buffer;
+
+	buffer = malloc(sizeof(char) * 1024);
+	if (buffer == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fileto);
+		exit(99);
+	}
+
+	return (buffer);
 }

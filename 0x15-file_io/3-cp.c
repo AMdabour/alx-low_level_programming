@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	buff = buffer_helper(argv[2]);
 	fd1 = open(argv[1], O_RDONLY);
 	ret1 = read(fd1, buff, 1024);
-	fd2 = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY | 0664);
+	fd2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC , 0664);
 	do {
 		if (fd1 == -1 || ret1 == -1)
 		{

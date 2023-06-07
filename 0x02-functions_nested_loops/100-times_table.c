@@ -25,6 +25,10 @@ void print_times_table(int n)
 				else
 					printf(", %d", res);
 			}
+			else
+			{
+				printf("%d", res);
+			}
 		}
 		printf("\n");
 	}

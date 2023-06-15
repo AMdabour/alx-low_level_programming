@@ -5,7 +5,7 @@
  * @head: the list to check
  * @index: the index of the node
  * Return: tmp->n or null
- * */
+ */
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
 	dlistint_t *tmp = head, *tmp2 = head;

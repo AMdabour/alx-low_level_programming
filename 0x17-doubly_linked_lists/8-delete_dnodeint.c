@@ -8,7 +8,7 @@ void free_h(dlistint_t *tmp1, dlistint_t *tmp3);
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	size_t i, j = 0;
+	unsigned int i, j = 0;
 	dlistint_t *tmp1 = *head, *tmp2 = *head, *tmp3 = NULL;
 
 	if (head == NULL || *head == NULL)
@@ -29,7 +29,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	}
 	if (j >= index)
 	{
-		for (i = 1; i < index; i++)
+		for (i = 0; i < index - 1; i++)
 			tmp1 = tmp1->next;
 		if (tmp1->next == NULL)
 		{
@@ -44,6 +44,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		{
 			free_h(tmp1, tmp3);
 		}
+
 		return (1);
 	}
 

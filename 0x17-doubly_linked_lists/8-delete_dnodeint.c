@@ -44,10 +44,8 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		{
 			free_h(tmp1, tmp3);
 		}
-
 		return (1);
 	}
-
 	return (-1);
 }
 
@@ -58,9 +56,8 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
  */
 void free_h(dlistint_t *tmp1, dlistint_t *tmp3)
 {
-	tmp1 = tmp1->next;
 	tmp3 = tmp1->next;
-	tmp1->prev->next = tmp3;
-	tmp3->prev = tmp1->prev;
-	free(tmp1);
+	tmp1->next = tmp3->next;
+	tmp3->next->prev = tmp1;
+	free(tmp3);
 }

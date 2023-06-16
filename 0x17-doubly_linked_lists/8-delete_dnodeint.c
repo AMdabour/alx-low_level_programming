@@ -1,5 +1,5 @@
 #include "lists.h"
-void free_h(dlistint_t *tmp1, dlistint_t *tmp3);
+
 /**
  * delete_dnodeint_at_index - delete at an index
  * @head: the list to check
@@ -39,22 +39,12 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		}
 		else
 		{
-			free_h(tmp1, tmp3);
+			tmp3 = tmp1->next;
+			tmp1->next = tmp3->next;
+			tmp3->next->prev = tmp1;
+			free(tmp3);
 		}
 		return (1);
 	}
 	return (-1);
-}
-
-/**
- * free_h - free a node
- * @tmp1: tmp1
- * @tmp3: tmp3
- */
-void free_h(dlistint_t *tmp1, dlistint_t *tmp3)
-{
-	tmp3 = tmp1->next;
-	tmp1->next = tmp3->next;
-	tmp3->next->prev = tmp1;
-	free(tmp3);
 }
